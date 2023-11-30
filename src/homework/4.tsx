@@ -8,9 +8,9 @@ type Menu = { id: MenuIds; title: string };
 type SelectedMenu = {
   id: MenuIds;
 };
-type MenuSelected = { SelectedMenu: SelectedMenu };
+type MenuSelected = { selectedMenu: SelectedMenu };
 const MenuSelectedContext = createContext<MenuSelected>({
-  selectedMenu: {},
+  selectedMenu: {} as SelectedMenu,
 });
 
 // Додайте тип MenuAction
@@ -55,7 +55,7 @@ function MenuProvider({ children }: PropsProvider) {
 }
 
 type PropsMenu = {
-  menus: Menu; // Додайте вірний тип для меню
+  menus: Menu[]; // Додайте вірний тип для меню
 };
 
 function MenuComponent({ menus }: PropsMenu) {
